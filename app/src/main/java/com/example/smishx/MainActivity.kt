@@ -1,7 +1,5 @@
 package com.example.smishx
 
-import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
@@ -17,15 +15,6 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        // Check if onboarding is complete
-        val sharedPrefs = getSharedPreferences("app_prefs", Context.MODE_PRIVATE)
-        if (!sharedPrefs.getBoolean("onboarding_complete", false)) {
-            // Launch com.example.smishx.OnboardingActivity and finish MainActivity
-            startActivity(Intent(this, OnboardingActivity::class.java))
-            finish()
-            return
-        }
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)

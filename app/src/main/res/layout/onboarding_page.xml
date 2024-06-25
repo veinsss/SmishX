@@ -6,32 +6,17 @@
     android:background="@color/primary"
     android:layout_height="match_parent">
 
-<!--    <Button-->
-<!--        android:id="@+id/button"-->
-<!--        android:layout_width="249dp"-->
-<!--        android:layout_height="66dp"-->
-<!--        android:layout_marginTop="316dp"-->
-<!--        android:layout_marginBottom="100dp"-->
-<!--        android:background="@drawable/rounded_corner"-->
-<!--        android:backgroundTint="#3F51B5"-->
-<!--        android:text="@string/get_started"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.561"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/imageView" />-->
-
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button_id_Login"
-        android:layout_width="299dp"
-        android:layout_height="74dp"
+        android:layout_width="245dp"
+        android:layout_height="62dp"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="112dp"
         android:background="@drawable/rounded_corner"
+        android:fontFamily="@font/lexendregular"
         android:text="@string/get_started"
         android:textAllCaps="false"
         android:textSize="22sp"
-        android:fontFamily="@font/lexendregular"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -40,8 +25,8 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="124dp"
-        android:layout_marginEnd="108dp"
+        android:layout_marginTop="312dp"
+        android:layout_marginEnd="168dp"
         android:fontFamily="@font/lexendbold"
         android:text="@string/welcome_to"
         android:textColor="@color/white"
@@ -53,12 +38,29 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="112dp"
+
+
         android:fontFamily="@font/lexendbold"
         android:text="PhishX"
         android:textColor="@color/red"
         android:textSize="34sp"
+        app:layout_constraintBottom_toTopOf="@+id/button_id_Login"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintHorizontal_bias="0.196"
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.615" />
+
+    <!--    <ImageView-->
+<!--        android:id="@+id/imageView"-->
+<!--        android:layout_width="150dp"-->
+<!--        android:layout_height="150dp"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/button_id_Login"-->
+<!--        app:layout_constraintEnd_toStartOf="@+id/textView2"-->
+<!--        app:layout_constraintHorizontal_bias="1.0"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintVertical_bias="0.255"-->
+<!--        app:srcCompat="@drawable/mainlogo" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

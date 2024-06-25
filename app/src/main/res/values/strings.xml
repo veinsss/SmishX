@@ -5,4 +5,9 @@
     <string name="title_notifications">Notifications</string>
     <string name="get_started">Get Started</string>
     <string name="welcome_to">Welcome To</string>
+    <string name="don_t_have_an_account">Don\'t have an account?</string>
+    <string name="sign_up">Sign up</string>
+    <string name="login">Login</string>
+    <string name="sign_in">Sign In</string>
+    <string name="accessibility_service_description">This service blocks known phishing URLs to protect users.</string>
 </resources>

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1A1A2E"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="24dp"
+    tools:context=".SignInActivity">
+
+    <!-- Email Section -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp">
+
+        <TextView
+            android:id="@+id/loginText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lexendbold"
+            android:text="@string/login"
+            android:textColor="@color/red"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp">
+
+        <TextView
+            android:id="@+id/emailHint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="2dp"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/lexendbold"
+            android:text="Email"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:background="@drawable/rounded_text_input"
+            android:hint=""
+            android:inputType="textEmailAddress"
+            android:padding="16dp"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#808080"
+            android:layout_below="@id/emailHint"/>
+    </RelativeLayout>
+
+    <!-- Password Section -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp">
+
+        <TextView
+            android:id="@+id/passwordHint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="2dp"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/lexendbold"
+            android:text="Password"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:background="@drawable/rounded_text_input"
+            android:hint=""
+            android:inputType="textPassword"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#808080"
+            android:padding="16dp"
+            android:layout_below="@id/passwordHint"/>
+    </RelativeLayout>
+
+    <!-- Sign In Button -->
+    <!-- Sign Up Link -->
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_id_Login"
+        android:layout_width="261dp"
+        android:layout_height="59dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="24dp"
+
+        android:background="@drawable/rounded_corner_signin"
+        android:fontFamily="@font/lexendregular"
+        android:text="@string/sign_in"
+        android:textAllCaps="false"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lexendregular"
+            android:text="@string/don_t_have_an_account"
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/signUpLink"
+            android:layout_width="wrap_content"
+            android:fontFamily="@font/lexendregular"
+            android:layout_height="wrap_content"
+            android:text="@string/sign_up"
+            android:textColor="@color/red"
+            android:layout_marginStart="4dp" />
+    </LinearLayout>
+
+</LinearLayout>

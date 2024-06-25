@@ -9,7 +9,11 @@
         android:id="@+id/navigation_home"
         android:name="com.example.smishx.ui.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_navigation_home_to_smsDetailFragment"
+            app:destination="@id/smsDetailFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_dashboard"
@@ -22,4 +26,24 @@
         android:name="com.example.smishx.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
+
+    <fragment
+        android:id="@+id/smsDetailFragment"
+        android:name="com.example.smishx.ui.smsdetail.SmsDetailFragment"
+        android:label="SMS Detail"
+        tools:layout="@layout/fragment_sms_detail">
+        <argument
+            android:name="timeSent"
+            app:argType="string" />
+        <argument
+            android:name="number"
+            app:argType="string" />
+        <argument
+            android:name="message"
+            app:argType="string" />
+        <argument
+            android:name="link"
+            app:argType="string" />
+    </fragment>
+
 </navigation>

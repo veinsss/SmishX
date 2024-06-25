@@ -41,8 +41,8 @@ android {
 }
 
 dependencies {
-    implementation(libs.firebase.bom)
-    implementation(libs.firebase.analytics)
+    implementation(platform(libs.firebase.bom))
+
     implementation(libs.firebase.auth)
 
     implementation(libs.androidx.core.ktx)
@@ -53,6 +53,11 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
+
+    // Add these dependencies
+    implementation(libs.kotlinx.coroutines.core)
+    implementation(libs.kotlinx.coroutines.android)
+    implementation(libs.okhttp)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
