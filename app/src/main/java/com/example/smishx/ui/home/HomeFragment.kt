@@ -1,19 +1,13 @@
 package com.example.smishx.ui.home
 
 import android.Manifest
-import android.accessibilityservice.AccessibilityService
-import android.content.Context
-import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
-import android.provider.Settings
 import android.provider.Telephony
-import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.accessibility.AccessibilityManager
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
@@ -23,7 +17,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.smishx.R
-import com.example.smishx.UrlBlockerAccessibilityService
 import com.example.smishx.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
@@ -44,12 +37,9 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        // Check and request permissions when the fragment is loaded
-        checkAndRequestPermissions()
-
-        // Add OnClickListener to the Material Button to list SMS messages
+        // Add OnClickListener to the Material Button
         binding.roundButton.setOnClickListener {
-            fetchSMSMessages()
+            checkAndRequestPermissions()
         }
 
         return root
@@ -64,7 +54,7 @@ class HomeFragment : Fragment() {
         if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.READ_SMS) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(requireActivity(), arrayOf(Manifest.permission.READ_SMS), SMS_PERMISSION_CODE)
         } else {
-            checkAccessibilityService()
+            fetchSMSMessages()
         }
     }
 
@@ -72,33 +62,11 @@ class HomeFragment : Fragment() {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (requestCode == SMS_PERMISSION_CODE) {
             if ((grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
-                checkAccessibilityService()
+                fetchSMSMessages()
             } else {
                 Toast.makeText(requireContext(), "SMS Read Permission Denied", Toast.LENGTH_SHORT).show()
             }
         }
-    }
-
-    private fun checkAccessibilityService() {
-        if (!isAccessibilityServiceEnabled(requireContext(), UrlBlockerAccessibilityService::class.java)) {
-            val intent = Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS)
-            startActivity(intent)
-            Toast.makeText(requireContext(), "Please enable the URL Blocker Accessibility Service", Toast.LENGTH_LONG).show()
-        }
-    }
-
-    private fun isAccessibilityServiceEnabled(context: Context, service: Class<out AccessibilityService>): Boolean {
-        val am = context.getSystemService(Context.ACCESSIBILITY_SERVICE) as AccessibilityManager
-        val enabledServices = Settings.Secure.getString(context.contentResolver, Settings.Secure.ENABLED_ACCESSIBILITY_SERVICES)
-        val colonSplitter = TextUtils.SimpleStringSplitter(':')
-        colonSplitter.setString(enabledServices)
-        while (colonSplitter.hasNext()) {
-            val componentName = colonSplitter.next()
-            if (componentName.equals(service.name, ignoreCase = true)) {
-                return true
-            }
-        }
-        return false
     }
 
     private fun fetchSMSMessages() {
@@ -110,12 +78,10 @@ class HomeFragment : Fragment() {
         cursor?.use {
             val addressIndex = it.getColumnIndexOrThrow(Telephony.Sms.Inbox.ADDRESS)
             val bodyIndex = it.getColumnIndexOrThrow(Telephony.Sms.Inbox.BODY)
-            val dateIndex = it.getColumnIndexOrThrow(Telephony.Sms.Inbox.DATE)
             while (it.moveToNext()) {
                 val address = it.getString(addressIndex)
                 val body = it.getString(bodyIndex)
-                val date = it.getLong(dateIndex)
-                smsList.add(Triple(address, body, date))
+                smsList.add(Triple(address, body, System.currentTimeMillis()))
             }
         }
 

@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#181825"
+    tools:context=".PrivacyPolicyActivity">
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:padding="16dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/buttonAgree"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#1E1E2D"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="@android:color/white"
+                android:padding="8dp"
+                android:fontFamily="@font/lexendregular"
+                android:text="@string/privacy_effectivedate" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="@android:color/white"
+                android:padding="8dp"
+                android:fontFamily="@font/lexendregular"
+                android:text="@string/privacy_welcome" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="@android:color/white"
+                android:padding="8dp"
+                android:fontFamily="@font/lexendregular"
+                android:text="@string/privacy_information_we_collect" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="@android:color/white"
+                android:padding="8dp"
+                android:fontFamily="@font/lexendregular"
+                android:text="@string/privacy_personal_information" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="@android:color/white"
+                android:padding="8dp"
+                android:fontFamily="@font/lexendregular"
+                android:text="@string/privacy_non_personal_information" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="@android:color/white"
+                android:padding="8dp"
+                android:fontFamily="@font/lexendregular"
+                android:text="@string/privacy_how_we_use_your_information" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="@android:color/white"
+                android:padding="8dp"
+                android:fontFamily="@font/lexendregular"
+                android:text="@string/privacy_personal_information_usage" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="@android:color/white"
+                android:padding="8dp"
+                android:fontFamily="@font/lexendregular"
+                android:text="@string/privacy_non_personal_information_usage" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="@android:color/white"
+                android:padding="8dp"
+                android:fontFamily="@font/lexendregular"
+                android:text="@string/privacy_information_sharing_and_disclosure" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="@android:color/white"
+                android:padding="8dp"
+                android:fontFamily="@font/lexendregular"
+                android:text="@string/privacy_data_security" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="@android:color/white"
+                android:padding="8dp"
+                android:fontFamily="@font/lexendregular"
+                android:text="@string/privacy_your_rights_and_choices" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="@android:color/white"
+                android:padding="8dp"
+                android:fontFamily="@font/lexendregular"
+                android:text="@string/privacy_access_and_update" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="@android:color/white"
+                android:padding="8dp"
+                android:fontFamily="@font/lexendregular"
+                android:text="@string/privacy_opt_out" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="@android:color/white"
+                android:padding="8dp"
+                android:fontFamily="@font/lexendregular"
+                android:text="@string/privacy_data_retention" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="@android:color/white"
+                android:padding="8dp"
+                android:fontFamily="@font/lexendregular"
+                android:text="@string/privacy_childrens_privacy" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="@android:color/white"
+                android:padding="8dp"
+                android:fontFamily="@font/lexendregular"
+                android:text="@string/privacy_changes_to_this_privacy_policy" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="@android:color/white"
+                android:padding="8dp"
+                android:fontFamily="@font/lexendregular"
+                android:text="@string/privacy_contact_us" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="@android:color/white"
+                android:padding="8dp"
+                android:fontFamily="@font/lexendregular"
+                android:text="@string/privacy_by_using_smishx" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonAgree"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/i_agree"
+        app:cornerRadius="8dp"
+        android:fontFamily="@font/lexendregular"
+        android:background="@drawable/rounded_corner"
+        android:backgroundTint="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="16dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,19 +2,22 @@ package com.example.smishx
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import com.example.smishx.databinding.ActivityOnboardingBinding
 
 class OnboardingActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityOnboardingBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.onboarding_page)
 
-        val getStartedButton: Button = findViewById(R.id.button_id_Login) // Replace with your button's ID
-        getStartedButton.setOnClickListener {
-            // Navigate to SignInActivity
-            startActivity(Intent(this, SignInActivity::class.java))
-            finish() // Finish OnboardingActivity
+        binding = ActivityOnboardingBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        binding.buttonIdLogin.setOnClickListener {
+            val intent = Intent(this, TermsAndConditionsActivity::class.java)
+            startActivity(intent)
         }
     }
 }

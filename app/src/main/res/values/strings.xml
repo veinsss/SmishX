@@ -10,4 +10,42 @@
     <string name="login">Login</string>
     <string name="sign_in">Sign In</string>
     <string name="accessibility_service_description">This service blocks known phishing URLs to protect users.</string>
+    <string name="i_agree">I Agree</string>
+    <string name="userobli">5. User Obligations\n\nWhen using SmishX, you are enabling the application to access the SMS in your device to monitor the possible attacks of smishing. You must not use SmishX for any illegal or unauthorized purpose. You must not interfere with or disrupt the operation of SmishX.\n\n</string>
+    <string name="license">4. License\n\nStrawhats grants you a limited, non-exclusive, non-transferable, and revocable license to use SmishX solely for your personal, non-commercial use. You agree not to reproduce, distribute, modify, or create derivative works of SmishX without our prior written consent.\n\n</string>
+    <string name="acccesstosms">3. Access to SMS\n\nSmishX requires access to your SMS messages to provide its core functionality. By using SmishX, you consent to the application accessing, reading, and analyzing your SMS messages for the purpose of detecting and preventing phishing attempts.\n\n</string>
+    <string name="privacypolicy">2. Privacy Policy\n\nYour privacy is important to us. Please review our Privacy Policy, which explains how we collect, use, and protect your information.\n\n</string>
+    <string name="acceptanceofterms">1. Acceptance of Terms\n\nBy accessing and using SmishX, you accept and agree to be bound by these terms and conditions. If you do not agree to these terms, please do not use the application.\n\n</string>
+
+
+    <string name="effectivedate">Effective Date: June 23, 2024\n\nWelcome to SmishX, an application developed by Strawhats. By downloading, installing, and using SmishX, you agree to comply with and be bound by the following terms and conditions. Please read them carefully.\n\n</string>
+
+
+    <string name="privacy_effectivedate">Privacy Policy\nEffective Date: June 23, 2023</string>
+    <string name="privacy_welcome">Welcome to smishx, a comprehensive phishing detection application utilizing machine learning algorithms. We are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy outlines how we collect, use, disclose, and safeguard your information when you use our application, smishx.</string>
+    <string name="privacy_information_we_collect">1. Information We Collect</string>
+    <string name="privacy_personal_information">1.1 Personal Information\nWe may collect personal information that you voluntarily provide to us when you register an account, use our services, or interact with our application. This information may include:\n\nName\nEmail address\nPhone number\nUser-generated content (e.g., links submitted for analysis)</string>
+    <string name="privacy_non_personal_information">1.2 Non-Personal Information\nWe may collect non-personal information about your use of the application. This information may include:\n\nDevice information (e.g., device type, operating system, and browser type)\nUsage data (e.g., pages visited, time spent on the application, and interaction data)\nLog data (e.g., IP address, access times, and error logs)</string>
+    <string name="privacy_how_we_use_your_information">2. How We Use Your Information</string>
+    <string name="privacy_personal_information_usage">2.1 Personal Information\nWe may use your personal information to:\n\nProvide, operate, and maintain our application\nImprove, personalize, and expand our application\nCommunicate with you, including sending updates, notifications, and support messages\nAnalyze user behavior and trends to enhance your experience</string>
+    <string name="privacy_non_personal_information_usage">2.2 Non-Personal Information\nWe may use non-personal information to:\n\nMonitor and analyze usage patterns and trends\nImprove the functionality and performance of our application\nEnsure the security and integrity of our application</string>
+    <string name="privacy_information_sharing_and_disclosure">3. Information Sharing and Disclosure\nWe do not sell, trade, or otherwise transfer your personal information to third parties without your consent, except in the following circumstances:\n\nService Providers: We may share your information with third-party service providers who assist us in operating our application, conducting our business, or providing services to you, provided they agree to keep your information confidential.\nLegal Requirements: We may disclose your information if required by law, regulation, or legal process, or in response to a government request.\nProtection of Rights: We may disclose your information to enforce our terms of service, protect the rights, property, or safety of our users or others, or investigate fraud or security issues.</string>
+    <string name="privacy_data_security">4. Data Security\nWe implement appropriate technical and organizational measures to protect your personal information against unauthorized access, disclosure, alteration, or destruction. However, no method of transmission over the internet or electronic storage is completely secure, and we cannot guarantee absolute security.</string>
+    <string name="privacy_your_rights_and_choices">5. Your Rights and Choices</string>
+    <string name="privacy_access_and_update">5.1 Access and Update\nYou have the right to access, update, and correct your personal information. You can do this by logging into your account and accessing the account settings.</string>
+    <string name="privacy_opt_out">5.2 Opt-Out\nYou may opt-out of receiving promotional communications from us by following the unsubscribe instructions provided in those communications or by contacting us directly.</string>
+    <string name="privacy_data_retention">5.3 Data Retention\nWe will retain your personal information for as long as necessary to fulfill the purposes outlined in this Privacy Policy unless a longer retention period is required or permitted by law.</string>
+    <string name="privacy_childrens_privacy">6. Childrens Privacy\nOur application is not intended for use by children under the age of 13. We do not knowingly collect or solicit personal information from children under 13. If we become aware that we have collected personal information from a child under 13, we will delete such information promptly.</string>
+    <string name="privacy_changes_to_this_privacy_policy">7. Changes to This Privacy Policy\nWe may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the effective date. You are advised to review this Privacy Policy periodically for any changes.</string>
+    <string name="privacy_contact_us">8. Contact Us\nIf you have any questions or concerns about this Privacy Policy or our data practices, please contact us at:\n\nEmail: strawhats.thesis@gmail.com</string>
+    <string name="privacy_by_using_smishx">By using smishx, you agree to the terms of this Privacy Policy. If you do not agree with the terms, please do not use our application.</string>
+    <string name="time_sent">Time sent:</string>
+    <string name="number">Number:</string>
+    <string name="message">Message:</string>
+    <string name="link">Link:</string>
+    <string name="scan_result">Scan result:</string>
+    <string name="features">Features:</string>
+    <string name="block_this_link">Block this link</string>
+    <string name="scan">Scan</string>
+    <string name="view_more">View More</string>
 </resources>

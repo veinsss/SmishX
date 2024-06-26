@@ -40,6 +40,9 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".TermsAndConditionsActivity" android:exported="true" />
+        <activity android:name=".PrivacyPolicyActivity" android:exported="true" />
+
         <activity
             android:name=".MainActivity"
             android:exported="true"

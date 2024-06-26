@@ -8,6 +8,13 @@
     android:padding="24dp"
     tools:context=".ui.smsdetail.SmsDetailFragment">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:theme="?attr/actionBarTheme"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -27,7 +34,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/lexendregular"
                 android:paddingEnd="4dp"
-                android:text="Time sent: "
+                android:text="@string/time_sent"
                 android:textColor="@color/red"
                 android:textSize="18sp" />
 
@@ -52,7 +59,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/lexendregular"
                 android:paddingEnd="4dp"
-                android:text="Number: "
+                android:text="@string/number"
                 android:textColor="@color/red"
                 android:textSize="18sp" />
 
@@ -77,7 +84,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/lexendregular"
                 android:paddingEnd="4dp"
-                android:text="Message: "
+                android:text="@string/message"
                 android:textColor="@color/red"
                 android:textSize="18sp" />
 
@@ -102,7 +109,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/lexendregular"
                 android:paddingEnd="4dp"
-                android:text="Link: "
+                android:text="@string/link"
                 android:textColor="@color/red"
                 android:textSize="18sp" />
 
@@ -121,14 +128,14 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/lexendregular"
             android:padding="8dp"
-            android:text="Scan result: "
+            android:text="@string/scan_result"
             android:textColor="#FFFFFF"
             android:textSize="18sp"
             android:visibility="gone" />
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="200dp"
             android:visibility="gone"
             android:id="@+id/scrollViewFeatures">
 
@@ -138,46 +145,46 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/lexendregular"
                 android:padding="8dp"
-                android:text="Features: "
+                android:text="@string/features"
                 android:textColor="#FFFFFF"
-                android:textSize="18sp"
-                android:visibility="gone" />
+                android:textSize="18sp" />
         </ScrollView>
     </LinearLayout>
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/buttonBlockLink"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Block this link"
+        android:text="@string/block_this_link"
         android:visibility="gone"
         android:padding="8dp"
-        android:background="@color/primary"
-        android:textColor="@color/white"
+        android:background="@drawable/rounded_corner"
+        android:textColor="@color/black"
         android:fontFamily="@font/lexendregular"
         android:layout_marginTop="16dp" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/buttonScanLink"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Scan"
+        android:text="@string/scan"
         android:visibility="gone"
         android:padding="8dp"
-        android:background="@color/primary"
-        android:textColor="@color/white"
+        android:background="@drawable/rounded_corner"
+        android:textColor="@color/black"
         android:fontFamily="@font/lexendregular"
         android:layout_marginTop="8dp" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/buttonViewMore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="View More"
+        android:text="@string/view_more"
         android:visibility="gone"
         android:padding="8dp"
-        android:background="@color/primary"
-        android:textColor="@color/white"
+        android:background="@drawable/rounded_corner"
+        android:textColor="@color/black"
         android:fontFamily="@font/lexendregular"
         android:layout_marginTop="8dp" />
+
 </LinearLayout>

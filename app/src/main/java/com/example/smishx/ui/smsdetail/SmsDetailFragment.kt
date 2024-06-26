@@ -1,13 +1,14 @@
 package com.example.smishx.ui.smsdetail
 
 import android.content.Context
-import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import com.example.smishx.R
 import com.example.smishx.databinding.FragmentSmsDetailBinding
 import java.text.SimpleDateFormat
 import java.util.Date
@@ -64,12 +65,19 @@ class SmsDetailFragment : Fragment() {
         }
 
         binding.buttonViewMore.setOnClickListener {
-            binding.textFeatures.text = features ?: "No features found"
-            binding.textFeatures.visibility = View.VISIBLE
             binding.scrollViewFeatures.visibility = View.VISIBLE
+            binding.textFeatures.text = formatFeatures(features ?: "No features found")
         }
 
+        setupToolbar()
+
         return root
+    }
+
+    private fun setupToolbar() {
+        binding.toolbar.setNavigationOnClickListener {
+            findNavController().navigateUp()
+        }
     }
 
     override fun onDestroyView() {
@@ -116,7 +124,11 @@ class SmsDetailFragment : Fragment() {
                     withContext(Dispatchers.Main) {
                         binding.textScanResult.text = "Prediction: $prediction"
                         binding.textScanResult.setTextColor(
-                            if (prediction.equals("Legitimate", ignoreCase = true)) Color.GREEN else Color.RED
+                            if (prediction.equals("Legitimate", ignoreCase = true)) {
+                                resources.getColor(R.color.green, null)
+                            } else {
+                                resources.getColor(R.color.red, null)
+                            }
                         )
                         binding.textScanResult.visibility = View.VISIBLE
                         binding.buttonViewMore.visibility = View.VISIBLE
@@ -125,10 +137,13 @@ class SmsDetailFragment : Fragment() {
             } catch (e: Exception) {
                 withContext(Dispatchers.Main) {
                     binding.textScanResult.text = "Error: ${e.message}"
-                    binding.textScanResult.setTextColor(Color.RED)
                     binding.textScanResult.visibility = View.VISIBLE
                 }
             }
         }
+    }
+
+    private fun formatFeatures(features: String): String {
+        return features.replace("{", "").replace("}", "").replace(",", "\n")
     }
 }

@@ -20,6 +20,7 @@
 
     <!-- Grey Color -->
     <color name="grey">#45475a</color>
+    <color name="green">#a6e3a1</color>
 
     <!-- Red Color -->
     <color name="red">#f38ba8</color>
