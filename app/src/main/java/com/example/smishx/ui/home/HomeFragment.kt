@@ -1,8 +1,7 @@
 package com.example.smishx.ui.home
 
-import android.Manifest
+import android.content.Context
 import android.content.pm.PackageManager
-import android.net.Uri
 import android.os.Bundle
 import android.provider.Telephony
 import android.view.LayoutInflater
@@ -14,47 +13,34 @@ import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
 import com.example.smishx.R
 import com.example.smishx.databinding.FragmentHomeBinding
+import androidx.navigation.fragment.findNavController
 
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
-
-    companion object {
-        private const val SMS_PERMISSION_CODE = 1001
-    }
+    private val SMS_PERMISSION_CODE = 1001
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
-        val homeViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
-
+    ): View? {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        // Add OnClickListener to the Material Button
-        binding.roundButton.setOnClickListener {
-            checkAndRequestPermissions()
-        }
+        checkAndRequestPermissions()
+        loadLinks()
 
         return root
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
-
     private fun checkAndRequestPermissions() {
-        if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.READ_SMS) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(requireActivity(), arrayOf(Manifest.permission.READ_SMS), SMS_PERMISSION_CODE)
+        if (ContextCompat.checkSelfPermission(requireContext(), android.Manifest.permission.READ_SMS) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(requireActivity(), arrayOf(android.Manifest.permission.READ_SMS), SMS_PERMISSION_CODE)
         } else {
-            fetchSMSMessages()
+            fetchSmsMessages()
         }
     }
 
@@ -62,16 +48,16 @@ class HomeFragment : Fragment() {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (requestCode == SMS_PERMISSION_CODE) {
             if ((grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
-                fetchSMSMessages()
+                fetchSmsMessages()
             } else {
                 Toast.makeText(requireContext(), "SMS Read Permission Denied", Toast.LENGTH_SHORT).show()
             }
         }
     }
 
-    private fun fetchSMSMessages() {
+    private fun fetchSmsMessages() {
         val smsList = mutableListOf<Triple<String, String, Long>>()
-        val uri: Uri = Telephony.Sms.Inbox.CONTENT_URI
+        val uri = Telephony.Sms.Inbox.CONTENT_URI
         val projection = arrayOf(Telephony.Sms.Inbox.ADDRESS, Telephony.Sms.Inbox.BODY, Telephony.Sms.Inbox.DATE)
         val cursor = requireContext().contentResolver.query(uri, projection, null, null, null)
 
@@ -85,25 +71,17 @@ class HomeFragment : Fragment() {
             }
         }
 
-        displaySMSMessages(smsList)
+        displaySmsMessages(smsList)
     }
 
-    private fun displaySMSMessages(smsList: List<Triple<String, String, Long>>) {
-        // Update UI to show the SMS messages and hide the button
-        binding.scrollView.visibility = View.VISIBLE
-        binding.roundButton.visibility = View.GONE
-
-        val smsContainer: LinearLayout = binding.smsContainer
-        smsContainer.removeAllViews()
-
+    private fun displaySmsMessages(smsList: List<Triple<String, String, Long>>) {
+        binding.smsContainer.removeAllViews()
         for (sms in smsList) {
-            val smsView = LayoutInflater.from(context).inflate(R.layout.sms_item, smsContainer, false)
+            val smsView = LayoutInflater.from(context).inflate(R.layout.sms_item, binding.smsContainer, false)
             val addressTextView = smsView.findViewById<TextView>(R.id.smsNumber)
             val bodyTextView = smsView.findViewById<TextView>(R.id.smsMessage)
-
             addressTextView.text = sms.first
             bodyTextView.text = sms.second
-
             smsView.setOnClickListener {
                 val action = HomeFragmentDirections.actionNavigationHomeToSmsDetailFragment(
                     timeSent = sms.third.toString(),
@@ -113,8 +91,7 @@ class HomeFragment : Fragment() {
                 )
                 findNavController().navigate(action)
             }
-
-            smsContainer.addView(smsView)
+            binding.smsContainer.addView(smsView)
         }
     }
 
@@ -122,5 +99,30 @@ class HomeFragment : Fragment() {
         val regex = "(https?://|www\\.|\\S+\\.\\S{2,})([^\\s]*)".toRegex()
         val matchResult = regex.find(message)
         return matchResult?.value ?: "No link"
+    }
+
+    private fun loadLinks() {
+        val sharedPref = requireActivity().getSharedPreferences("links", Context.MODE_PRIVATE) ?: return
+
+        val phishingLinks = sharedPref.getStringSet("phishing_links", setOf()) ?: setOf()
+        val legitimateLinks = sharedPref.getStringSet("legitimate_links", setOf()) ?: setOf()
+
+        displayLinks(phishingLinks, binding.phishingLinksList)
+        displayLinks(legitimateLinks, binding.legitimateLinksList)
+    }
+
+    private fun displayLinks(links: Set<String>, container: LinearLayout) {
+        container.removeAllViews()
+        for (link in links) {
+            val linkView = LayoutInflater.from(context).inflate(R.layout.link_item, container, false)
+            val linkTextView = linkView.findViewById<TextView>(R.id.linkTextView)
+            linkTextView.text = link
+            container.addView(linkView)
+        }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

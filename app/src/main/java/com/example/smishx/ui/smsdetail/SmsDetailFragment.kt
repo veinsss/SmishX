@@ -132,6 +132,8 @@ class SmsDetailFragment : Fragment() {
                         )
                         binding.textScanResult.visibility = View.VISIBLE
                         binding.buttonViewMore.visibility = View.VISIBLE
+
+                        saveLink(url, prediction)
                     }
                 }
             } catch (e: Exception) {
@@ -141,6 +143,16 @@ class SmsDetailFragment : Fragment() {
                 }
             }
         }
+    }
+
+    private fun saveLink(url: String, prediction: String) {
+        val sharedPref = requireActivity().getSharedPreferences("links", Context.MODE_PRIVATE) ?: return
+        val editor = sharedPref.edit()
+        val key = if (prediction.equals("Legitimate", ignoreCase = true)) "legitimate_links" else "phishing_links"
+        val existingLinks = sharedPref.getStringSet(key, mutableSetOf())?.toMutableSet() ?: mutableSetOf()
+        existingLinks.add(url)
+        editor.putStringSet(key, existingLinks)
+        editor.apply()
     }
 
     private fun formatFeatures(features: String): String {
