@@ -1,7 +1,9 @@
 package com.example.smishx.ui.home
 
 import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Bundle
 import android.provider.Telephony
 import android.view.LayoutInflater
@@ -13,9 +15,9 @@ import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.smishx.R
 import com.example.smishx.databinding.FragmentHomeBinding
-import androidx.navigation.fragment.findNavController
 
 class HomeFragment : Fragment() {
 
@@ -105,7 +107,6 @@ class HomeFragment : Fragment() {
         val sharedPref = requireActivity().getSharedPreferences("links", Context.MODE_PRIVATE) ?: return
 
         val legitimateLinks = sharedPref.getStringSet("legitimate_links", setOf()) ?: setOf()
-
         displayLinks(legitimateLinks, binding.legitimateLinksList)
     }
 
@@ -115,8 +116,17 @@ class HomeFragment : Fragment() {
             val linkView = LayoutInflater.from(context).inflate(R.layout.link_item, container, false)
             val linkTextView = linkView.findViewById<TextView>(R.id.linkTextView)
             linkTextView.text = link
+            linkTextView.setOnClickListener {
+                openLink(link)
+            }
             container.addView(linkView)
         }
+    }
+
+    private fun openLink(url: String) {
+        val intent = Intent(Intent.ACTION_VIEW)
+        intent.data = Uri.parse(url)
+        startActivity(intent)
     }
 
     override fun onDestroyView() {
