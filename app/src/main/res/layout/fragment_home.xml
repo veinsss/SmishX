@@ -12,11 +12,12 @@
         android:layout_width="412dp"
         android:layout_height="412dp"
 
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SpeakableTextPresentCheck">
 
         <LinearLayout
             android:id="@+id/smsContainer"
@@ -45,15 +46,16 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/lexendregular"
             android:padding="8dp"
-            android:text="Legitimate Links"
-            android:textColor="@android:color/white"
+            android:text="@string/legitimate_links"
+            android:textColor="@color/green"
             android:textSize="18sp" />
 
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:background="@drawable/rounded_background"
-            android:fillViewport="true">
+            android:fillViewport="true"
+            tools:ignore="SpeakableTextPresentCheck">
 
             <LinearLayout
                 android:id="@+id/legitimateLinksList"
