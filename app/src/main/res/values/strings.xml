@@ -48,4 +48,6 @@
     <string name="block_this_link">Block this link</string>
     <string name="scan">Scan</string>
     <string name="view_more">View More</string>
+    <string name="featutueue">Features:</string>
+    <string name="view_more_home">View More</string>
 </resources>

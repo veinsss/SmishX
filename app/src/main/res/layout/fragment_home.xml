@@ -43,7 +43,7 @@
             android:fontFamily="@font/lexendregular"
             android:padding="8dp"
             android:text="Phishing Links"
-            android:textColor="@android:color/white"
+            android:textColor="@color/red"
             android:textSize="18sp" />
 
         <LinearLayout
@@ -65,7 +65,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/phishingLinksContainer"
-        app:layout_constraintVertical_bias="0.063">
+        app:layout_constraintVertical_bias="0.216">
 
         <TextView
             android:layout_width="wrap_content"
@@ -73,7 +73,7 @@
             android:fontFamily="@font/lexendregular"
             android:padding="8dp"
             android:text="Legitimate Links"
-            android:textColor="@android:color/white"
+            android:textColor="@color/green"
             android:textSize="18sp" />
 
         <LinearLayout

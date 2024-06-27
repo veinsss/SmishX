@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -34,7 +33,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/lexendregular"
                 android:paddingEnd="4dp"
-                android:text="@string/time_sent"
+                android:text="Time sent: "
                 android:textColor="@color/red"
                 android:textSize="18sp" />
 
@@ -59,7 +58,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/lexendregular"
                 android:paddingEnd="4dp"
-                android:text="@string/number"
+                android:text="Number: "
                 android:textColor="@color/red"
                 android:textSize="18sp" />
 
@@ -84,7 +83,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/lexendregular"
                 android:paddingEnd="4dp"
-                android:text="@string/message"
+                android:text="Message: "
                 android:textColor="@color/red"
                 android:textSize="18sp" />
 
@@ -109,7 +108,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/lexendregular"
                 android:paddingEnd="4dp"
-                android:text="@string/link"
+                android:text="Link: "
                 android:textColor="@color/red"
                 android:textSize="18sp" />
 
@@ -128,14 +127,14 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/lexendregular"
             android:padding="8dp"
-            android:text="@string/scan_result"
+            android:text="Scan result: "
             android:textColor="#FFFFFF"
             android:textSize="18sp"
             android:visibility="gone" />
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="150dp"
             android:visibility="gone"
             android:id="@+id/scrollViewFeatures">
 
@@ -145,41 +144,38 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/lexendregular"
                 android:padding="8dp"
-                android:text="@string/features"
-                android:textColor="#FFFFFF"
-                android:textSize="18sp" />
+                android:text="@string/featutueue"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:visibility="gone" />
         </ScrollView>
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
+
     </LinearLayout>
 
-    <androidx.appcompat.widget.AppCompatButton
+    <Button
         android:id="@+id/buttonBlockLink"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/block_this_link"
+        android:text="Block this link"
         android:visibility="gone"
         android:padding="8dp"
-        android:background="@drawable/rounded_corner"
-        android:textColor="@color/black"
+        android:background="@color/primary"
+        android:textColor="@color/white"
         android:fontFamily="@font/lexendregular"
         android:layout_marginTop="16dp" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/buttonScanLink"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/scan"
-        android:visibility="gone"
-        android:padding="8dp"
-        android:background="@drawable/rounded_corner"
-        android:textColor="@color/black"
-        android:fontFamily="@font/lexendregular"
-        android:layout_marginTop="8dp" />
-
-    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/buttonViewMore"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/view_more"
+        android:layout_width="176dp"
+        android:layout_height="50dp"
+
+        android:text="@string/view_more_home"
         android:visibility="gone"
         android:padding="8dp"
         android:background="@drawable/rounded_corner"

@@ -51,21 +51,18 @@ class SmsDetailFragment : Fragment() {
         detectedLink = extractLink(args.message)
         binding.textLink.text = detectedLink ?: "Link not found"
 
-        if (detectedLink != null) {
-            binding.buttonBlockLink.visibility = View.VISIBLE
-            binding.buttonScanLink.visibility = View.VISIBLE
+        // Fetch prediction automatically
+        detectedLink?.let {
+            fetchPrediction(it)
         }
 
         binding.buttonBlockLink.setOnClickListener {
             blockLink(detectedLink!!)
         }
 
-        binding.buttonScanLink.setOnClickListener {
-            fetchPrediction(detectedLink!!)
-        }
-
         binding.buttonViewMore.setOnClickListener {
             binding.scrollViewFeatures.visibility = View.VISIBLE
+            binding.textFeatures.visibility = View.VISIBLE
             binding.textFeatures.text = formatFeatures(features ?: "No features found")
         }
 
@@ -101,6 +98,7 @@ class SmsDetailFragment : Fragment() {
     }
 
     private fun fetchPrediction(url: String) {
+        binding.progressBar.visibility = View.VISIBLE
         val json = JSONObject()
         json.put("url", url)
 
@@ -132,6 +130,7 @@ class SmsDetailFragment : Fragment() {
                         )
                         binding.textScanResult.visibility = View.VISIBLE
                         binding.buttonViewMore.visibility = View.VISIBLE
+                        binding.progressBar.visibility = View.GONE
 
                         saveLink(url, prediction)
                     }
@@ -140,6 +139,7 @@ class SmsDetailFragment : Fragment() {
                 withContext(Dispatchers.Main) {
                     binding.textScanResult.text = "Error: ${e.message}"
                     binding.textScanResult.visibility = View.VISIBLE
+                    binding.progressBar.visibility = View.GONE
                 }
             }
         }
@@ -156,6 +156,8 @@ class SmsDetailFragment : Fragment() {
     }
 
     private fun formatFeatures(features: String): String {
-        return features.replace("{", "").replace("}", "").replace(",", "\n")
+        return features.replace("\"", "").replace("{", "").replace("}", "").replace(",", "\n")
     }
+
+
 }

@@ -4,7 +4,7 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:padding="8dp"
-    android:background="@drawable/rounded_background">
+    android:background="@drawable/background_text_home">
 
     <TextView
         android:id="@+id/linkTextView"
