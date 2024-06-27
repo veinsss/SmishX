@@ -104,10 +104,8 @@ class HomeFragment : Fragment() {
     private fun loadLinks() {
         val sharedPref = requireActivity().getSharedPreferences("links", Context.MODE_PRIVATE) ?: return
 
-        val phishingLinks = sharedPref.getStringSet("phishing_links", setOf()) ?: setOf()
         val legitimateLinks = sharedPref.getStringSet("legitimate_links", setOf()) ?: setOf()
 
-        displayLinks(phishingLinks, binding.phishingLinksList)
         displayLinks(legitimateLinks, binding.legitimateLinksList)
     }
 

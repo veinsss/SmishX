@@ -9,12 +9,13 @@
 
     <ScrollView
         android:id="@+id/scrollViewSms"
-        android:layout_width="408dp"
-        android:layout_height="363dp"
-        app:layout_constraintBottom_toTopOf="@+id/phishingLinksContainer"
+        android:layout_width="409dp"
+        android:layout_height="413dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SpeakableTextPresentCheck">
 
         <LinearLayout
             android:id="@+id/smsContainer"
@@ -23,35 +24,6 @@
             android:orientation="vertical"
             android:padding="16dp" />
     </ScrollView>
-
-    <LinearLayout
-        android:id="@+id/phishingLinksContainer"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:background="#1E1E2D"
-        android:orientation="vertical"
-        android:padding="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/scrollViewSms">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/lexendregular"
-            android:padding="8dp"
-            android:text="Phishing Links"
-            android:textColor="@color/red"
-            android:textSize="18sp" />
-
-        <LinearLayout
-            android:id="@+id/phishingLinksList"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" />
-    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/legitimateLinksContainer"
@@ -64,8 +36,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/phishingLinksContainer"
-        app:layout_constraintVertical_bias="0.216">
+        app:layout_constraintTop_toBottomOf="@id/scrollViewSms"
+        app:layout_constraintVertical_bias="0.0">
 
         <TextView
             android:layout_width="wrap_content"
@@ -73,14 +45,22 @@
             android:fontFamily="@font/lexendregular"
             android:padding="8dp"
             android:text="Legitimate Links"
-            android:textColor="@color/green"
+            android:textColor="@android:color/white"
             android:textSize="18sp" />
 
-        <LinearLayout
-            android:id="@+id/legitimateLinksList"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" />
-    </LinearLayout>
+            android:layout_height="230dp"
+            android:background="@drawable/rounded_background"
+            android:fillViewport="true"
+            tools:ignore="SpeakableTextPresentCheck">
 
+            <LinearLayout
+                android:id="@+id/legitimateLinksList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_background"
+                android:orientation="vertical" />
+        </ScrollView>
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
