@@ -18,6 +18,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.smishx.R
 import com.example.smishx.databinding.FragmentHomeBinding
+import java.util.Calendar
 
 class HomeFragment : Fragment() {
 
@@ -63,13 +64,21 @@ class HomeFragment : Fragment() {
         val projection = arrayOf(Telephony.Sms.Inbox.ADDRESS, Telephony.Sms.Inbox.BODY, Telephony.Sms.Inbox.DATE)
         val cursor = requireContext().contentResolver.query(uri, projection, null, null, null)
 
+        val calendar = Calendar.getInstance()
+        calendar.add(Calendar.MONTH, -8)
+        val startOfPeriod = calendar.timeInMillis
+
         cursor?.use {
             val addressIndex = it.getColumnIndexOrThrow(Telephony.Sms.Inbox.ADDRESS)
             val bodyIndex = it.getColumnIndexOrThrow(Telephony.Sms.Inbox.BODY)
+            val dateIndex = it.getColumnIndexOrThrow(Telephony.Sms.Inbox.DATE)
             while (it.moveToNext()) {
-                val address = it.getString(addressIndex)
-                val body = it.getString(bodyIndex)
-                smsList.add(Triple(address, body, System.currentTimeMillis()))
+                val date = it.getLong(dateIndex)
+                if (date >= startOfPeriod) {
+                    val address = it.getString(addressIndex)
+                    val body = it.getString(bodyIndex)
+                    smsList.add(Triple(address, body, date))
+                }
             }
         }
 
