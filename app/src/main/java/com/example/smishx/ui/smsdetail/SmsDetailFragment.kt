@@ -104,7 +104,7 @@ class SmsDetailFragment : Fragment() {
 
         val body = json.toString().toRequestBody("application/json; charset=utf-8".toMediaTypeOrNull())
         val request = Request.Builder()
-            .url("http://192.168.254.104:8000/predict")
+            .url("http://192.168.254.113:8000/predict")
             .post(body)
             .build()
 
@@ -156,8 +156,41 @@ class SmsDetailFragment : Fragment() {
     }
 
     private fun formatFeatures(features: String): String {
-        return features.replace("\"", "").replace("{", "").replace("}", "").replace(",", "\n")
+        val featureMap = mapOf(
+            "domain" to "Domain",
+            "subdomain" to "Subdomain",
+            "suffix" to "Suffix",
+            "url_length" to "URL Length",
+            "hostname_length" to "Hostname Length",
+            "path_length" to "Path Length",
+            "num_dots" to "Number of Dots",
+            "num_slashes" to "Number of Slashes",
+            "num_dashes" to "Number of Dashes",
+            "num_at" to "Number of @ Symbols",
+            "num_question" to "Number of ? Symbols",
+            "num_ampersand" to "Number of & Symbols",
+            "num_equal" to "Number of = Symbols",
+            "num_digits" to "Number of Digits",
+            "num_subdomains" to "Number of Subdomains",
+            "has_https" to "Has HTTPS",
+            "has_ip" to "Contains IP Address",
+            "entropy" to "Entropy",
+            "domain_length" to "Domain Length",
+            "subdomain_length" to "Subdomain Length",
+            "suffix_length" to "Suffix Length",
+            "query_length" to "Query Length",
+            "fragment_length" to "Fragment Length"
+        )
+
+        val formattedFeatures = StringBuilder()
+        val json = JSONObject(features)
+
+        for (key in json.keys()) {
+            val value = json.getString(key)
+            val laymanTerm = featureMap[key] ?: key
+            formattedFeatures.append("$laymanTerm: $value\n")
+        }
+
+        return formattedFeatures.toString()
     }
-
-
 }

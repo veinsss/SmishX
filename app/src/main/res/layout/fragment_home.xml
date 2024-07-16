@@ -59,7 +59,6 @@
                 android:id="@+id/legitimateLinksList"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/rounded_background"
                 android:orientation="vertical" />
         </ScrollView>
     </LinearLayout>
